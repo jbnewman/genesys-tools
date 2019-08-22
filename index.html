@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Genesys Tools</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style type="text/css">
+      .selected-dice {
+        opacity: 0.5;
+      }
+      #success-chance {
+        text-align: center;
+        font-size: 54px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Genesys Tools</h1>
+    <div class="card">
+      <div class="card-header">Probability</div>
+      <div class="card-body text-center">
+        <div class="row">
+          <div class="col">
+            <h3>Good Dice</h3>
+            <div class="row">
+              <div class="col"><img src="img/ability.png" /></div>
+              <div class="col"><img src="img/ability.png" /></div>
+              <div class="col"><img src="img/ability.png" /></div>
+              <div class="col"><img src="img/ability.png" /></div>
+              <div class="col"><img src="img/ability.png" /></div>
+            </div>
+            <div class="row">
+              <div class="col"><img src="img/boost.png" /></div>
+              <div class="col"><img src="img/boost.png" /></div>
+              <div class="col"><img src="img/boost.png" /></div>
+              <div class="col"><img src="img/boost.png" /></div>
+              <div class="col"><img src="img/boost.png" /></div>
+            </div>
+            <div class="row">
+              <div class="col"><img src="img/proficiency.png" /></div>
+              <div class="col"><img src="img/proficiency.png" /></div>
+              <div class="col"><img src="img/proficiency.png" /></div>
+              <div class="col"><img src="img/proficiency.png" /></div>
+              <div class="col"><img src="img/proficiency.png" /></div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div id="success-chance">100%</div>
+          </div>
+          <div class="col">
+            <h3>Bad Dice</h3>
+            <div class="row">
+              <div class="col"><img src="img/difficulty.png" /></div>
+              <div class="col"><img src="img/difficulty.png" /></div>
+              <div class="col"><img src="img/difficulty.png" /></div>
+              <div class="col"><img src="img/difficulty.png" /></div>
+              <div class="col"><img src="img/difficulty.png" /></div>
+            </div>
+            <div class="row">
+              <div class="col"><img src="img/setback.png" /></div>
+              <div class="col"><img src="img/setback.png" /></div>
+              <div class="col"><img src="img/setback.png" /></div>
+              <div class="col"><img src="img/setback.png" /></div>
+              <div class="col"><img src="img/setback.png" /></div>
+            </div>
+            <div class="row">
+              <div class="col"><img src="img/challenge.png" /></div>
+              <div class="col"><img src="img/challenge.png" /></div>
+              <div class="col"><img src="img/challenge.png" /></div>
+              <div class="col"><img src="img/challenge.png" /></div>
+              <div class="col"><img src="img/challenge.png" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="probs.js"></script>
+    <script>
+      function calc_chance() {
+        $("img").each(function(index, elem) {
+          console.log(index, elem);
+        });
+      }
+      $(document).ready(function() {
+        $("img").addClass("selected-dice");
+        $("img").on("click", function(that) {
+          $(this).toggleClass("selected-dice", function() {
+            calc_chance();
+          });
+          calc_chance();
+        });
+      });
+    </script>
+  </body>
+</html>
