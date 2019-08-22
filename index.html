@@ -86,16 +86,48 @@
     <script src="probs.js"></script>
     <script>
       function calc_chance() {
+        var die_str = "";
         $("img").each(function(index, elem) {
-          console.log(index, elem);
+          var img = $(this);
+          switch (img.attr("src")) {
+            case "img/ability.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "A";
+              }
+              break;
+            case "img/boost.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "B";
+              }
+              break;
+            case "img/challenge.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "C";
+              }
+              break;
+            case "img/difficulty.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "D";
+              }
+              break;
+            case "img/proficiency.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "P";
+              }
+              break;
+            case "img/setback.png":
+              if (!img.hasClass("selected-dice")) {
+                die_str += "S";
+              }
+              break;
+          }
         });
+        $("#success-chance").text(get_prob(die_str) + "%");
       }
       $(document).ready(function() {
         $("img").addClass("selected-dice");
         $("img").on("click", function(that) {
-          $(this).toggleClass("selected-dice", function() {
-            calc_chance();
-          });
+          $(this).toggleClass("selected-dice");
           calc_chance();
         });
       });
